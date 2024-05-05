@@ -129,10 +129,19 @@ def update_tweet(request,tweet_id):
 def add_image(request):
     return render(request,"add_image.html")
 
+@login_required(login_url="login/")
 def show_my_tweets(request,username):
-
-    
     queryset = Tweets.objects.filter(user__username = username)
     context = {"user_tweets":queryset}
 
     return render(request,"all_tweets.html",context=context)
+
+@login_required(login_url="login/")
+def show_profile(request,username):
+
+    queryset = Tweets.objects.filter(user__username = username)
+    context = {"user_tweets":queryset,"page":"profile","profile_user":username}
+
+    return render(request,"profile.html",context=context)
+
+

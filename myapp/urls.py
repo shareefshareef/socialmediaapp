@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import index_page,login_page,register_page,logout_page
 from .views import add_tweet,delete_tweet,update_tweet,add_image
-from .views import show_my_tweets
+from .views import show_my_tweets,show_profile
 
 app_name = 'myapp'
 
@@ -14,7 +14,8 @@ urlpatterns = [
     path("delete-tweet/<tweet_id>/",delete_tweet,name="delete_tweet"),
     path("update-tweet/<tweet_id>/",update_tweet,name="update_tweet"),
     path("add-image/",add_image,name="add_image"),
-    path("user/<username>/tweets/", show_my_tweets, name="all_tweets")
+    path("user/<username>/tweets/", show_my_tweets, name="all_tweets"),
+    path("profile/<username>/",show_profile,name="show_profile")
 
 
 ]
