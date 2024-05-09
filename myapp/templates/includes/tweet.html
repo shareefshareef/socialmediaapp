@@ -1,0 +1,34 @@
+<div class="row">
+            <div class="col-lg-12 border border-white border-top-0 border-bottom-0 rounded">
+              <div class="card my-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <span class="font-light text-muted">{{element.pub_date}}</span>
+                  <div>
+                    {% if page == "my-tweets" %}
+                    <a class="px-2 py-1 bg-secondary text-white font-weight-bold rounded hover:bg-gray-500 mr-2" href="{% url 'myapp:update_tweet' element.id %}">Update Tweet</a>
+                    <a class="px-2 py-1 bg-danger text-white font-weight-bold rounded hover:bg-red-600" href="{% url 'myapp:delete_tweet' element.id %}">Delete Tweet</a>
+                    
+                    {% elif page == "home" %}
+                    <a class="no-decoration px-2 py-1 bg-secondary text-white font-weight-bold rounded hover:bg-gray-500 mr-2 " href="{% url 'myapp:update_tweet' element.id %}">{{element.user.username}}</a>
+                    {% endif %}
+                    
+                  </div>
+                </div>
+                <div class="card-body border border-primary rounded p-2">
+                  <h2 class="card-title h6 text-dark">{{element.topic}}</h2>
+                  <p class="card-text text-muted mb-0">{{element.tweet}}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                  <a class="text-primary" href="#">comments</a>
+                  <div>
+                  {% if page == "profile" %}
+                  <p class="mb-0">Go To <a class="text-dark font-weight-bold" href="/">Home</a></p>
+                  {% else %}
+                  <p class="mb-0">see my <a class="text-dark font-weight-bold" style="text-decoration:underline" href="{% url 'myapp:show_profile' element.user.username %}">profile</a></p>
+                  {% endif %}
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

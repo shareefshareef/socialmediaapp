@@ -6,57 +6,7 @@
 
 
 
-{% block navbar %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Tweets BIO</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'myapp:index_page' %}"><i class="fa fa-home"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'myapp:add_tweet_page' %}"><i class="fa fa-plus"></i> Add Tweet</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'myapp:add_image' %}"><i class="fa fa-image"></i> Add Image</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'myapp:all_tweets' request.user.username %}"></i>MyTweets</a>
-        </li>
-      </ul>
-    </div>
-    <div class="text-center me-3"> <!-- Added 'me-3' class for margin-right -->
-      <a class="nav-link font-weight-bold" href="#">{{request.user.username}}</a>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" aria-expanded="false">
-        <i class="fa fa-bars"></i> <!-- Hamburger icon -->
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{% url 'myapp:logout_page' %}">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<script>
-  // JavaScript to handle dropdown toggle
-  document.querySelector('.dropdown-toggle').addEventListener('click', function () {
-    document.querySelector('.dropdown-menu').classList.toggle('show');
-  });
 
-  // Close dropdown when clicking outside of it
-  window.addEventListener('mouseup', function (event) {
-    var dropdownMenu = document.querySelector('.dropdown-menu');
-    if (dropdownMenu.classList.contains('show') && !dropdownMenu.contains(event.target) && event.target !== document.querySelector('.dropdown-toggle')) {
-      dropdownMenu.classList.remove('show');
-    }
-  });
-</script>
-{% endblock navbar %}
 
 {% block body %}
 <div class="container mt-4">
@@ -78,33 +28,7 @@
     <div class="col-lg-9" style="max-height: 600px; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;">
       {% if user_tweets %}
         {% for element in user_tweets %}
-          <div class="row">
-            <div class="col-lg-12 border border-white border-top-0 border-bottom-0 rounded">
-              <div class="card my-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                  <span class="font-light text-muted">{{element.pub_date}}</span>
-                  <div>
-                    <a class="no-decoration px-2 py-1 bg-secondary text-white font-weight-bold rounded hover:bg-gray-500 mr-2 " href="{% url 'myapp:update_tweet' element.id %}">{{element.user.username}}</a>
-                    
-                  </div>
-                </div>
-                <div class="card-body border border-primary rounded p-2">
-                  <h2 class="card-title h6 text-dark">{{element.topic}}</h2>
-                  <p class="card-text text-muted mb-0">{{element.tweet}}</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center">
-                  <a class="text-primary" href="#">comments</a>
-                  <div>
-                  {% if page == "profile" %}
-                  
-                  <p class="mb-0">Go To <a class="text-dark font-weight-bold" href="/">Home</a></p>
-                  {% endif %}
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% include "includes/tweet.html" with element=element %}
         {% endfor %}
       {% endif %}
     </div>

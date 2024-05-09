@@ -6,57 +6,7 @@
 {% endblock title %}
 
 
-{% block navbar %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Tweets BIO</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'myapp:index_page' %}"><i class="fa fa-home"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'myapp:add_tweet_page' %}"><i class="fa fa-plus"></i> Add Tweet</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'myapp:add_image' %}"><i class="fa fa-image"></i> Add Image</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'myapp:all_tweets' request.user.username %}"></i>MyTweets</a>
-        </li>
-      </ul>
-    </div>
-    <div class="text-center me-3"> <!-- Added 'me-3' class for margin-right -->
-      <a class="nav-link font-weight-bold" href="#">{{request.user.username}}</a>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" aria-expanded="false">
-        <i class="fa fa-bars"></i> <!-- Hamburger icon -->
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="{% url 'myapp:logout_page' %}">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<script>
-  // JavaScript to handle dropdown toggle
-  document.querySelector('.dropdown-toggle').addEventListener('click', function () {
-    document.querySelector('.dropdown-menu').classList.toggle('show');
-  });
 
-  // Close dropdown when clicking outside of it
-  window.addEventListener('mouseup', function (event) {
-    var dropdownMenu = document.querySelector('.dropdown-menu');
-    if (dropdownMenu.classList.contains('show') && !dropdownMenu.contains(event.target) && event.target !== document.querySelector('.dropdown-toggle')) {
-      dropdownMenu.classList.remove('show');
-    }
-  });
-</script>
-{% endblock navbar %}
 
 {% block body %}
 <div class="container mt-5">
@@ -68,9 +18,6 @@
         <h2>Add Tweet</h2>
         <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-            
-        
-
             <div class="form-group my-3">
                 <label for="topic">Topic</label>
                 <input type="text" class="form-control my-2" id="topic" name="topic" placeholder="Enter topic" required>
