@@ -16,6 +16,4 @@ urlpatterns = [
     path("add-image/",add_image,name="add_image"),
     path("user/<username>/tweets/", show_my_tweets, name="all_tweets"),
     path("profile/<username>/",show_profile,name="show_profile")
-
-
 ]

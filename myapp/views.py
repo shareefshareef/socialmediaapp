@@ -10,9 +10,9 @@ from .models import Tweets
 
 @login_required(login_url="login/")
 def index_page(request):
-
+    
     user_data = Tweets.objects.all().order_by("-pub_date")
-    return render(request,"index.html",context={"page":"home","data":user_data})
+    return render(request,"index.html",context={"data":user_data,"page":"home"})
 
 @login_required(login_url="login/")
 def add_tweet(request):
@@ -35,7 +35,7 @@ def add_tweet(request):
         return redirect("/")
 
 
-    return render(request,"add_tweet.html")
+    return render(request,"add_tweet.html",context={"page":"add-tweet"})
 
 @login_required(login_url="login/")
 def logout_page(request):
@@ -119,7 +119,7 @@ def update_tweet(request,tweet_id):
         queryset.save()
 
         return redirect("/")
-    context = {"retrotweet":queryset}
+    context = {"retrotweet":queryset,"page":"update-tweet"}
 
 
 
@@ -127,12 +127,12 @@ def update_tweet(request,tweet_id):
 
 @login_required(login_url="login/")
 def add_image(request):
-    return render(request,"add_image.html")
+    return render(request,"add_image.html",context={"page":"add-image"})
 
 @login_required(login_url="login/")
 def show_my_tweets(request,username):
     queryset = Tweets.objects.filter(user__username = username)
-    context = {"user_tweets":queryset}
+    context = {"user_tweets":queryset,"page":"my-tweets"}
 
     return render(request,"all_tweets.html",context=context)
 
