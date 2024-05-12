@@ -59,10 +59,13 @@ body {
 <body>
     
     <header>
+    {% if request.user.is_authenticated %}
 
     {% block navbar %}
     {% include "includes/navbar.html" %}
     {% endblock navbar %}
+    {% endif %}
+    
 
     </header>
 
