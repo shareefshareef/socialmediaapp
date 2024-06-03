@@ -1,5 +1,5 @@
 <div class="row">
-            <div class="col-lg-12 border border-white border-top-0 border-bottom-0 rounded">
+            <div class="col-lg-12 ">
               <div class="card my-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
                   <span class="font-light text-muted">{{element.pub_date}}</span>
@@ -19,12 +19,14 @@
                   <p class="card-text text-muted mb-0">{{element.tweet}}</p>
                 </div>
                 <div class="card-footer d-flex justify-content-between align-items-center">
-                  <a class="text-primary" href="#">comments</a>
+                  <a class="text-primary" href="#" ><i class="bi bi-chat-square"></i></a>
                   <div>
                   {% if page == "profile" %}
-                  <p class="mb-0">Go To <a class="text-dark font-weight-bold" href="/">Home</a></p>
+                  
+                  <a class="text-dark font-weight-bold" href="/"><i class="bi bi-house-door"></i></a>
                   {% else %}
-                  <p class="mb-0">see my <a class="text-dark font-weight-bold" style="text-decoration:underline" href="{% url 'myapp:show_profile' element.user.username %}">profile</a></p>
+                  
+                  <a class="text-dark font-weight-bold" style="text-decoration:underline" href="{% url 'myapp:show_profile' element.user.username %}"><i class="bi bi-person-fill"></i></a>
                   {% endif %}
                     
                   </div>

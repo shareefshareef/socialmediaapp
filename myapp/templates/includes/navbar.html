@@ -13,11 +13,14 @@
           <a class="nav-link" href="{% url 'myapp:add_tweet_page' %}"><i class="fa fa-plus"></i> Add Tweet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'myapp:add_image' %}"><i class="fa fa-image"></i> Add Image</a>
+          <a class="nav-link" href="{% url 'propic:getimage' %}"><i class="fa fa-image"></i> Add Image</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'myapp:all_tweets' request.user.username %}"></i>MyTweets</a>
-        </li> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'propic:allpics' %}"></i>Images</a>
+        </li>
       </ul>
     </div>
     <div class="text-center me-3"> <!-- Added 'me-3' class for margin-right -->
