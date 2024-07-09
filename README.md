@@ -70,6 +70,25 @@ For any questions or feedback regarding this project, please feel free to contac
 
 - **Email**: [mahaboobshareef831@.com]
 - **GitHub**: [https://github.com/shareefshareef)
+## WEB APPLICATION
+*Login screen of the Social Media App*
+![Login Image](https://github.com/shareefshareef/socialmediaapp/raw/main/dj-images/login.png)
+*Register screen of the Social Media App*
+![Register Image](https://github.com/shareefshareef/socialmediaapp/raw/main/dj-images/register.png)
+*Profile screen of the Social Media App*
+![Profile Image](https://github.com/shareefshareef/socialmediaapp/raw/main/dj-images/profile.png)
+*Home screen of the Social Media App*
+![Home Image](https://github.com/shareefshareef/socialmediaapp/raw/main/dj-images/home.png)
+*Add Tweet screen of the Social Media App*
+![AddTweet Image](https://github.com/shareefshareef/socialmediaapp/raw/main/dj-images/addtweet.png)
+*All Tweets screen of the Social Media App*
+![MyTweet Image](https://github.com/shareefshareef/socialmediaapp/raw/main/dj-images/mytweets.png)
+
+
+
+
+
+
 
 
 
