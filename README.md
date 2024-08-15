@@ -69,7 +69,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For any questions or feedback regarding this project, please feel free to contact me:
 
 - **Email**: [mahaboobshareef831@.com]
-- **GitHub**: [https://github.com/shareefshareef)
 ## WEB APPLICATION
 *Login screen of the Social Media App*
 ![Login Image](https://github.com/shareefshareef/socialmediaapp/raw/main/dj-images/login.png)
